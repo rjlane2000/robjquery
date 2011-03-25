@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
+	<title>jQuery treeView</title>
+	
+	
+	
+	
+<!-- Add CSS -->
+	<link rel="stylesheet" href="../jquery.treeview.css" />
+  
+	<link rel="stylesheet" href="../demo/screen.css" />
+
+	<link rel="stylesheet" href="../red-treeview.css" />
+
+	<script src="../lib/jquery.cookie.js" type="text/javascript"></script>
+	<script src="../lib/jquery.js" type="text/javascript"></script>
+	
+	<script src="../demo/jquery.treeview.js" type="text/javascript"></script>
+	
+<script src="../demo/jquery.treeview.pack.js" type="text/javascript"></script>
+
+<script src="../demo/jquery.treeview.min.js" type="text/javascript"></script>
+
+<script src="/demo/demo.js"></script>
+		<script type="text/javascript">
+
+
+	
+
+
+	// Make Tree Interactive 
+$(document).ready(function(){$("#browser").treeview({toggle: function() {console.log("%s was toggled.", $(this).find(">span").text());}	});
+
+
+	
+// Constrcuct JSON object 
+
+
+var Level1_object ={"10000002001":"PE"};
+
+
+var Level2_object ={ "10000002002":"Project"};
+
+var Level3_object ={"10000002003":"Category"};
+
+var Level4_object ={"10000002003":"task"};
+ 
+var Level5_object = {"10000002003":"WP" };
+
+//$("#add").click(function() {
+$.each(Level1_object, function(index, value) {$(document).ready(function(){var branches = $("<ul id='add2' ><span class='folder'>" + index + "  " + value  + "</span>" + "</ul>"	).appendTo("#browser"); });
+
+$("#add2").click(function() {
+
+$.each(Level2_object, function(index, value) {	$(document).ready(function(){var branches = $("<li id='add3' ><span class='folder'>" + index + "  " + value  + "</span>" +  "</li>"  ).appendTo("#browser");}); 	});
+
+$("#add3").click(function() {
+		
+$.each(Level3_object, function(index, value) { $(document).ready(function(){var branches = $("<li id='add4' ><span class='folder'>" + index + "  " + value  + "</span>" + "</li>" ).appendTo("#browser");  }); });
+
+$("#add4").click(function() {
+		
+$.each(Level4_object, function(index, value) { $(document).ready(function(){var branches = $("id='add5'<ul ><span class='folder'>" + index + "  " + value  + "</span>" + "</ul>" ).appendTo("#browser");  }); });
+
+
+$.each(Level5_object, function(index, value) { 	$(document).ready(function(){var branches = $("<li ><span class='folder'>" + index + "  " + value  + "</span>" +  "</li>"  ).appendTo("#browser");});
+
+}); // fifth Level 
+}); // fourth Level 
+
+}); //Third Level 
+
+}); // Second Level 	
+ }); // First Level
+
+
+
+// Add Tree Nodes 		
+$("#browser").treeview({ add: branches});
+ 
+
+ });
+	//});
+	</script>
+
+</head>
+<body>
+
+	
+	<div id="main">
+	
+	
+		
+	<ul id="browser" class="filetree">
+
+	</ul>	
+
+
+
+</div>
+	
+</body>
+</html>
